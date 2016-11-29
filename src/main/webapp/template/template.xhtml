@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+ 
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 		<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/principal.css" />
+        <title>Meu Sistema</title>
+        <style>
+			.ui-growl{
+			    position:fixed;
+			    top:20px;
+			    right:90px;
+			    width:350px;
+			}
+		</style>
+    </h:head>
+    <h:body>
+        <div align="center">
+            <p:layout fullPage="true">  
+                <p:layoutUnit position="north" size="85">  
+	           
+                </p:layoutUnit>  
+                <p:layoutUnit position="center">  
+                    <ui:insert name="centro" >
+                    
+                    </ui:insert>
+                </p:layoutUnit> 
+                  <p:layoutUnit position="south" size="35">  
+	           
+                </p:layoutUnit> 
+            </p:layout>  
+        </div>
+    </h:body>
+</html>

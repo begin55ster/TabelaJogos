@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#paginas#home.xhtml"
+  PATH="/paginas/home.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#home.xhtml:0" NAME="item"
+   PATH="/paginas/home.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="navegar-CadastroTime::#paginas#CadastroTime.xhtml" NAME="output"
+    PATH="/paginas/CadastroTime.xhtml"
+    TARGET="rules:#paginas#CadastroTime.xhtml"
+    TITLE="navegar-CadastroTime" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="navegar-CadastroJogador::#paginas#CadastroJogador.xhtml"
+    NAME="output1" PATH="/paginas/CadastroJogador.xhtml"
+    TARGET="rules:#paginas#CadastroJogador.xhtml"
+    TITLE="navegar-CadastroJogador" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="navegar-Configuracoes::#paginas#Configuracoes.xhtml"
+    NAME="output2" PATH="/paginas/Configuracoes.xhtml"
+    TARGET="rules:#paginas#Configuracoes.xhtml"
+    TITLE="navegar-Configuracoes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#CadastroTime.xhtml"
+  PATH="/paginas/CadastroTime.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#CadastroTime.xhtml:0" NAME="item"
+   PATH="/paginas/CadastroTime.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="navegar-CadastroTimehome::#paginas#home.xhtml" NAME="output"
+    PATH="/paginas/home.xhtml" TARGET="rules:#paginas#home.xhtml"
+    TITLE="navegar-CadastroTimehome" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#paginas#CadastroTime.xhtml:1" NAME="item1"
+   PATH="/paginas/CadastroTime.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="navegar-MontarCampeonato::#paginas#MontarCampeonato.xhtml"
+    NAME="output" PATH="/paginas/MontarCampeonato.xhtml"
+    TARGET="rules:#paginas#MontarCampeonato.xhtml"
+    TITLE="navegar-MontarCampeonato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#CadastroJogador.xhtml"
+  PATH="/paginas/CadastroJogador.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#CadastroJogador.xhtml:0" NAME="item"
+   PATH="/paginas/CadastroJogador.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="navegar-CadastroJogadorHome::#paginas#home.xhtml" NAME="output"
+    PATH="/paginas/home.xhtml" TARGET="rules:#paginas#home.xhtml"
+    TITLE="navegar-CadastroJogadorHome" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#MontarCampeonato.xhtml"
+  PATH="/paginas/MontarCampeonato.xhtml" SHAPE="288,321,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#MontarCampeonato.xhtml:0" NAME="item"
+   PATH="/paginas/MontarCampeonato.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="navegar-pontosCorridos::#paginas#pontosCorridos.xhtml"
+    NAME="output" PATH="/paginas/pontosCorridos.xhtml"
+    TARGET="rules:#paginas#pontosCorridos.xhtml"
+    TITLE="navegar-pontosCorridos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#pontosCorridos.xhtml"
+  PATH="/paginas/pontosCorridos.xhtml" SHAPE="496,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#Configuracoes.xhtml"
+  PATH="/paginas/Configuracoes.xhtml" SHAPE="288,433,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+  <ui:decorate template="/template/template.xhtml">
+   <ui:define name="centro">
+   
+	<h:form id="formHome">
+		<div align="center" class="botoesPaginaHome" >
+			<p:commandButton id="navegarTime" value="Ir para Time" action="#{homeController.irParaCadastroTime()}" immediate="true"/>
+			<p:commandButton id="navegarJogador" value="Ir para Jogador" action="#{homeController.irParaCadastroJogador()}"/>
+			<p:commandButton id="navegarConfiguracoes" value="Ir para Configurações" action="#{homeController.irParaConfiguracoes()}"/>
+		</div>
+		</h:form>
+   	  </ui:define>
+  </ui:decorate>
+</html>
+

@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+  <ui:decorate template="/template/template.xhtml">
+   <ui:define name="centro">
+   
+	<h:form id="primeiroForm">
+	 <p:growl id="growl" showDetail="true" sticky="true" />
+		<div align="center" class="divPrincipal" >
+			<h:panelGrid id="primeiroPanelGrid" columns="1">
+				<p:outputLabel for="nome" value="Nome do Time"></p:outputLabel>
+				<p:inputText id="nome" size="50" value="#{timeController.nomeTime}" >
+				</p:inputText>
+				<p:outputLabel for="jogador" value="Jogador" rendered="#{!timeController.isEdicao}"></p:outputLabel>
+				 <p:selectOneMenu id="jogador" size="50" value="#{timeController.jogadorId}" rendered="#{!timeController.isEdicao}"> 
+				 	 <f:selectItem itemLabel="Selecione" itemValue=""/>
+  						 <f:selectItems value="#{timeController.buscarJogadores()}" var="jogador" itemValue="#{jogador.seq}" itemLabel="#{jogador.nomeJogador}"  />
+				 </p:selectOneMenu>
+			</h:panelGrid>
+	     </div>
+	     <div id="divBotoesTime">
+	     	<h:panelGrid id="segundoPanelGridTime" columns="5">
+				<p:commandButton id="gravarTime" value="Gravar" update="growl primeiroPanelGrid tableTime" actionListener="#{timeController.gravar}"/>
+				<p:commandButton id="editarTime" value="Editar" action="#{timeController.editarTime()}" update="growl primeiroPanelGrid "/>
+				<p:commandButton id="removerTime" value="Excluir" actionListener="#{timeController.removerTime}" update="growl primeiroPanelGrid tableTime">
+					<p:confirm header="Exclusão de Time" message="Tem certeza que deseja excluir o Time Selecionado ?" icon="ui-icon-alert" />
+				</p:commandButton>
+				<p:commandButton id="limpar" value="Limpar" action="#{timeController.limparCampos()}" update="primeiroPanelGrid tableTime"/>
+			</h:panelGrid>
+			<p:confirmDialog global="true">
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+            </p:confirmDialog>
+		 </div>
+		 <div id="divTableTime">
+			 <p:dataTable id="tableTime" var="time" value="#{timeController.buscarTimes()}" scrollable="true" scrollHeight="170" selectionMode="single" selection="#{timeController.selectTime}" rowKey="#{time.seq}" emptyMessage="Não foram encontrados registros">
+			    <p:column headerText="Time">
+			        <h:outputText value="#{time.nomeTime}" />
+			    </p:column>
+			 
+			    <p:column headerText="Jogador">
+			        <h:outputText value="#{time.jogador.nomeJogador}" />
+			    </p:column>
+			 </p:dataTable>
+		 </div>
+		 <div id="divBotaoNavegarCampeonato">
+		 	<p:commandButton style="width: 470px; height: 50px;" id="navegarCampeonato" value="Montar Campeonato" action="#{homeController.irParaMontarCampeonato()}"/>
+		 	<p:commandButton style="width: 136px; height: 50px;" id="voltar" value="Voltar" action="#{timeController.voltarParaHome()}" />
+		 </div>	
+	</h:form>
+   </ui:define>
+ </ui:decorate>
+</html>
+

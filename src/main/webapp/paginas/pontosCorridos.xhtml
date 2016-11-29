@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+  <ui:decorate template="/template/template.xhtml">
+   <ui:define name="centro">
+   
+	<h:form id="primeiroFormHome">
+<!-- 				<p:dataGrid id="tablePontosCorridos" var="rodada"  value="#{jogoController.limitParaGrid()}" columns="1" layout="grid"> -->
+				    <h:panelGrid id="primeiroPanel" columns="2" >    
+				        <p:dataTable id="tablePontosCorridos" var="jogo" value="#{jogoController.buscarJogos()}" scrollable="true" scrollHeight="370" emptyMessage="Não foram encontrados registros" style="width: 500px;">
+						    <p:column style="text-align: center; width: 55px;" headerText="Rodada">
+						        <h:outputText  value="#{jogo.rodada}" />
+						    </p:column>
+						    
+						    <p:column style="text-align: center" headerText="Time Mandante">
+						     	<p:panelGrid styleClass="semBorda" style=" margin-left: 15px;" columns="2" columnClasses="cellGridFormLabel1">
+							        <h:outputText value="#{jogo.timeA}" />
+							        <p:inputText style="text-align: center" size="1" value="#{jogoController.golsTimeA}">
+							        	<p:ajax event="blur" listener="#{jogoController.atualizarTimeA(jogo)}"/>
+							        </p:inputText>
+						        </p:panelGrid> 
+						    </p:column>
+						    
+						     <p:column style="text-align: center; width: 18px;" headerText="Vs">
+						        <h:outputText value="X" />
+						    </p:column>
+						 
+						    <p:column style="text-align: center" headerText="Time Visitante">
+							    <p:panelGrid styleClass="semBorda" style=" margin-left: -5px;" columns="2" columnClasses="cellGridFormLabel">
+							    	<p:inputText style="text-align: center" size="1" value="#{jogoController.golsTimeB}">
+							    		<p:ajax event="blur" listener="#{jogoController.atualizarTabelaDeClassificacao(jogo)}" update="primeiroFormHome"/>
+							    	</p:inputText>
+							        <h:outputText value="#{jogo.timeB}" />
+							    </p:panelGrid>  
+						    </p:column>
+						</p:dataTable>
+						<p:dataTable id="tableClassificacao" rowIndexVar="rowIndex" var="classificacao" value="#{timeCampeonatoController.buscarClassificacao()}" scrollable="true" scrollHeight="370" emptyMessage="Não foram encontrados registros" style="width: 750px;">
+						    
+						    <p:column style="text-align: center; width: 25px;" headerText="Posicao">
+							       #{rowIndex+1}
+						    </p:column>
+						    <p:column style="text-align: center; width: 80px;" headerText="Time">
+							        <h:outputText value="#{classificacao.time.nomeTime}" />
+						    </p:column>
+						    <p:column style="text-align: center; width: 20px;" headerText="P">
+							        <h:outputText value="#{classificacao.pontos}" />
+						    </p:column>
+						    <p:column style="text-align: center; width: 20px;" headerText="V">
+							        <h:outputText value="#{classificacao.vitorias}" />
+						    </p:column>
+						    <p:column style="text-align: center; width: 20px;" headerText="E">
+							        <h:outputText value="#{classificacao.empates}" />
+						    </p:column>
+						     <p:column style="text-align: center; width: 20px;" headerText="D">
+							        <h:outputText value="#{classificacao.derrotas}" />
+						    </p:column>
+						     <p:column style="text-align: center; width: 20px;" headerText="GP">
+							        <h:outputText value="#{classificacao.golsPro}" />
+						    </p:column>
+						     <p:column style="text-align: center; width: 20px;" headerText="GC">
+							        <h:outputText value="#{classificacao.golsContra}" />
+						    </p:column>
+						     <p:column style="text-align: center; width: 20px;" headerText="SG">
+							        <h:outputText value="#{classificacao.saldoGols}" />
+						     </p:column>
+<!-- 						     <p:column style="text-align: center; width: 115px;" headerText="Campeonato"> -->
+<!-- 							        <h:outputText value="#{classificacao.campeonato.nomeCampeonato}" /> -->
+<!-- 						     </p:column> -->
+						</p:dataTable>
+					</h:panelGrid>	
+<!-- 			   </p:dataGrid> -->
+		</h:form>
+   	  </ui:define>
+  </ui:decorate>
+</html>

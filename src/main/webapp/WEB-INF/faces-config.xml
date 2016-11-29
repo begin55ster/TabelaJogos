@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+	<navigation-rule>
+		<from-view-id>/paginas/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>navegar-CadastroTime</from-outcome>
+			<to-view-id>/paginas/CadastroTime.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>navegar-CadastroJogador</from-outcome>
+			<to-view-id>/paginas/CadastroJogador.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>navegar-Configuracoes</from-outcome>
+			<to-view-id>/paginas/Configuracoes.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/paginas/CadastroTime.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>navegar-CadastroTimehome</from-outcome>
+			<to-view-id>/paginas/home.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/paginas/CadastroJogador.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>navegar-CadastroJogadorHome</from-outcome>
+			<to-view-id>/paginas/home.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/paginas/CadastroTime.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>navegar-MontarCampeonato</from-outcome>
+			<to-view-id>/paginas/MontarCampeonato.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	
+		<navigation-rule>
+		<from-view-id>/paginas/MontarCampeonato.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>navegar-pontosCorridos</from-outcome>
+			<to-view-id>/paginas/pontosCorridos.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	
+
+</faces-config>

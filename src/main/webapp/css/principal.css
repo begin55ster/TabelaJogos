@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+
+.divPrincipal {
+	margin-top: 15px;
+}
+
+#divBotoesTime {
+	position:absolute;
+	margin-top: 22px;
+	margin-left: 423px;
+}
+
+#divBotoesJogador {
+	position:absolute;
+	margin-top: 15px;
+	margin-left: 427px;
+}
+
+.botoesPaginaHome {
+	margin-top: 20px;
+}
+
+#divTableTime {
+	margin-top: 70px;
+	margin-left: 145px;
+	width: 620px;
+}
+
+#divTableJogador {
+	position:absolute;
+	margin-top: 68px;
+	margin-left: 430px;
+	width: 480px;
+}
+
+#divTablePontosCorridos {
+	margin-top: 10px;
+	width: 680px;
+	font-style: bold;
+}
+
+.cellGridFormLabel {
+    width: 30px;
+}
+
+.cellGridFormLabel1 {
+    width: 80px;
+}
+
+.semBorda tr, .semBorda td {
+	border: none !important;
+}
+
+#divBotaoNavegarCampeonato {
+	margin-top: 15px;
+	margin-left: 134px;
+}
+
+#divCentralCampeonato {
+	margin-top: 100px;
+	margin-top: -15px;
+}
+
+#labelTorneio {
+	font-size: 36px;
+	margin-top: 0px;
+}
+
+.botoesPaginaCampeonato {
+	width: 280px;
+	height: 45px;
+	
+}
+

@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+  <ui:decorate template="/template/template.xhtml">
+   <ui:define name="centro">
+   
+	<h:form id="formPrincipal">
+	 <p:growl id="growl" showDetail="true" sticky="true" />
+		<div align="center" class="divPrincipal" >
+			<h:panelGrid id="primeiroPanelGridJogador" columns="1">
+				<p:outputLabel for="nomeJogador" value="Nome do Jogador"></p:outputLabel>
+				<p:inputText id="nomeJogador" size="50" value="#{jogadorController.nomeJogador}"></p:inputText>
+					<h:panelGrid id="panelGridJogadorFone" columns="2" style="margin-left: -5px">
+						<h:panelGrid id="panelGridJogadorFone1" columns="1">
+							<p:outputLabel for="ddd" value="DDD"></p:outputLabel>
+							<p:inputText id="ddd" size="8" value="#{jogadorController.jogador.ddd}"></p:inputText>
+						</h:panelGrid>
+						<h:panelGrid id="panelGridJogadorFone2" columns="1">	
+							<p:outputLabel for="telefone" value="Telefone"></p:outputLabel>
+							<p:inputText id="telefone" size="38" value="#{jogadorController.jogador.telefone}"></p:inputText>
+						</h:panelGrid>
+					</h:panelGrid>
+				<p:outputLabel for="timeCoracao" value="Time do Coração"></p:outputLabel>
+				<p:inputText id="timeCoracao" size="50" value="#{jogadorController.jogador.timeQueTorce}"></p:inputText>
+				<p:outputLabel for="email" value="E-mail"></p:outputLabel>
+				<p:inputText id="email" size="50" value="#{jogadorController.jogador.email}"></p:inputText>
+			</h:panelGrid>
+		</div>
+		  <div id="divBotoesJogador">
+			<h:panelGrid id="segundoPanelGridJogador" columns="5">
+					<p:commandButton id="btGravar" update="growl primeiroPanelGridJogador tableJogador" value="Cadastrar" actionListener="#{jogadorController.gravar}"/>
+					<p:commandButton id="btEditar" update="primeiroPanelGridJogador" value="Editar" action="#{jogadorController.editarJogador()}"/>
+					<p:commandButton id="removerJogador" value="Excluir" actionListener="#{jogadorController.removerJogador}" update="growl primeiroPanelGridJogador tableJogador">
+						<p:confirm header="Exclusão de Jogador" message="Tem certeza que deseja excluir o Jogador Selecionado ?" icon="ui-icon-alert" />
+					</p:commandButton>
+					<p:commandButton id="btLimpar" update="primeiroPanelGridJogador tableJogador" value="Limpar" action="#{jogadorController.limparCampos()}"/>
+					<p:commandButton id="voltar" value="Voltar" action="#{jogadorController.voltarParaHome()}" />
+			</h:panelGrid>
+			<p:confirmDialog global="true">
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+            </p:confirmDialog>
+		  </div>
+		  <div id="divTableJogador">
+			 <p:dataTable id="tableJogador" var="jogador" value="#{jogadorController.buscarJogadores()}" scrollable="true" scrollHeight="113" selectionMode="single" selection="#{jogadorController.selectJogador}" rowKey="#{jogador.seq}" emptyMessage="Não foram encontrados registros">
+			    <p:column headerText="Time">
+			        <h:outputText value="#{jogador.nomeJogador}" />
+			    </p:column>
+			 </p:dataTable>
+		 </div>
+		</h:form>
+   	  </ui:define>
+  </ui:decorate>
+</html>
+

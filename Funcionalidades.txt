@@ -1,0 +1,21 @@
+Funcionalidades
+
+    Cadastro de Usuários
+    Cadastro de Campeonatos
+    Gerenciamento de Tabelas Dinâmicas
+    Lançamento de Resultados
+
+	
+
+    Agendamento de Jogos
+    Ranking de Partidas
+    Hall dos Campeões
+    Mensagens Inbox
+
+	
+
+    Mensagens Globais
+    Chat entre Participantes
+    Chamados de Suporte
+    Regulamento e Informações
+
