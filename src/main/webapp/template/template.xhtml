@@ -20,8 +20,11 @@
     <h:body>
         <div align="center">
             <p:layout fullPage="true">  
-                <p:layoutUnit position="north" size="85">  
-	           
+                <p:layoutUnit position="north" size="95">  
+	           		<h:form>
+	           			<p>Bem vindo #{usuarioController.user.login}</p>
+						<p:commandLink id="logout" action="#{usuarioController.logOut}" value="Sair" />
+					</h:form>
                 </p:layoutUnit>  
                 <p:layoutUnit position="center">  
                     <ui:insert name="centro" >
