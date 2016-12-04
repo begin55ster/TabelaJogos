@@ -15,24 +15,36 @@
 			    right:90px;
 			    width:350px;
 			}
+			.ui-layout-north .ui-layout-unit-content {
+			      background: #0B173B !important;
+			      border-color: #0B173B !important;
+			      border: 1 !important;
+			      padding: 1 !important;
+			      height: 85px !important;
+			      overflow: visible !important;
+			}
+			.ui-layout-center .ui-layout-unit-content {  
+			      background: #CDC8B1 !important;
+			      
+			}
 		</style>
     </h:head>
     <h:body>
         <div align="center">
             <p:layout fullPage="true">  
-                <p:layoutUnit position="north" size="95">  
-	           		<h:form>
-	           			<p>Bem vindo #{usuarioController.user.login}</p>
-						<p:commandLink id="logout" action="#{usuarioController.logOut}" value="Sair" />
+                <p:layoutUnit position="north" styleClass="ui-layout-north">  
+                	<h:form>
+                		<p id="titulo">Campeonato Pes</p>
+	           			<p style="position: absolute; margin-top: 32px; margin-left: 970px;" >#{usuarioController.user.login}</p>
+						<p:commandLink id="logout" action="#{usuarioController.logOut}">
+							<h:graphicImage style="height: 52px; margin-top: 20px; margin-left: 1270px;" value="/imagens/imagenSair.png" />
+						</p:commandLink>
 					</h:form>
                 </p:layoutUnit>  
-                <p:layoutUnit position="center">  
+                <p:layoutUnit position="center" styleClass="ui-layout-center">  
                     <ui:insert name="centro" >
                     
                     </ui:insert>
-                </p:layoutUnit> 
-                  <p:layoutUnit position="south" size="35">  
-	           
                 </p:layoutUnit> 
             </p:layout>  
         </div>

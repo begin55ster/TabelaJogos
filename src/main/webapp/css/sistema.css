@@ -1,13 +1,49 @@
 #div-login{
-	width: 500px;
+	height: 530px;
 	margin: auto;
-	margin-top: 150px;
+	margin-top: 30px;
+	border-color: #1E90FF;
+	border-radius: 50px;
 }
 
 .grid-login{
-	background-color: #f2f2f2;
+	background-color:#A0522D;
 	border-radius: 8px;
 	border: 1px solid #ccc;
-	margin-top: 8px;
+	margin-left: 160px;
 	padding: 10px;
 }
+
+#p1{
+	
+	font-size: 46px;
+	color: #0000FF;
+	margin-left: 160px;
+	margin-top: 145px;
+	
+}
+
+#p2{
+	
+	font-size: 14px;
+	margin-left: 160px;
+	
+}
+
+#p3{
+	
+	font-size: 12px;
+	margin-left: 160px;
+	
+}
+
+
+#imagem {
+	margin-top: -290px;
+	position: absolute;
+	width: 570px;
+	height: 350px;
+	margin-left: 640px;
+	border-radius: 10px;
+}
+

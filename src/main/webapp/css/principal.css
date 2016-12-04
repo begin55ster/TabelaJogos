@@ -7,13 +7,13 @@
 #divBotoesTime {
 	position:absolute;
 	margin-top: 22px;
-	margin-left: 423px;
+	margin-left: 438px;
 }
 
 #divBotoesJogador {
 	position:absolute;
 	margin-top: 15px;
-	margin-left: 427px;
+	margin-left: 436px;
 }
 
 .botoesPaginaHome {
@@ -29,7 +29,7 @@
 #divTableJogador {
 	position:absolute;
 	margin-top: 68px;
-	margin-left: 430px;
+	margin-left: 437px;
 	width: 480px;
 }
 
@@ -70,5 +70,12 @@
 	width: 280px;
 	height: 45px;
 	
+}  
+#titulo {
+  	position : absolute;
+	font-size: 65px;
+	margin-left: 420px;
+	margin-top: 0px;
+	color: #FFFFE0;
 }
 

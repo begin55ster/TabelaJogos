@@ -20,7 +20,7 @@ public class AbstractFilter {
 	}
 	
 	protected void acessoNegado(ServletRequest request, ServletResponse response, HttpServletRequest req) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("acessoNegado");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("acessoNegado.xhtml");
 		dispatcher.forward(request, response);
 	}
 	

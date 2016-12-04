@@ -9,27 +9,27 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/sistema.css" />
 	</h:head> 
-	<body> 
+	<body background="imagens/backgroundLogin.png"> 
 		<div id="div-login">
 			<h:form id="frmLogin">
-				<p:panel style="border:none;">
-					<p>Login</p>
+					<p id="p1">Sejam Bem Vindos</p>
+					<p id="p2">Identifique-se por favor para utilizar o Sistema.</p>
 					<p:growl showDetail="false" life="3000"/>
-					<p:panelGrid columns="2" styleClass="grid-login">
+					<h:panelGrid columns="2" styleClass="grid-login">
 						<p:outputLabel value="Usuário"/>
-						<p:inputText value="#{loginController.login}" label="Login" id="login" rendered="true">
+						<p:inputText value="#{loginController.login}" label="Login" id="login" rendered="true" size="25">
 							<f:validateLength minimum="4"/>
 						</p:inputText>	
 						
 						<p:outputLabel value="Senha"/>
-						<p:password value="#{loginController.senha}" label="Senha" id="senha" rendered="true" autocomplete="off">
+						<p:password value="#{loginController.senha}" label="Senha" id="senha" rendered="true" autocomplete="off" size="25">
 							<f:validateLength minimum="4"/>
 						</p:password>
 						
 						<h:panelGroup/>
-						<p:commandButton action="#{loginController.entrar}" value="Entrar" ajax="false" icon="ui-icon-star"/>
-					</p:panelGrid>	
-				</p:panel>
+						<p:commandButton action="#{loginController.entrar}" value="Entrar" ajax="false" icon="ui-icon-star" id="entrar"/>
+					</h:panelGrid>	
+					<p id="p3">Esqueceu a senha. Recuperar Senha.</p>
 			</h:form>
 		</div>
 	</body> 
