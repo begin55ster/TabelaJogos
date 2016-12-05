@@ -2,6 +2,23 @@
 
 .divPrincipal {
 	margin-top: 15px;
+	margin-left: 48px;
+}
+
+#divPrincipalConfiguracao {
+	position: absolute;
+	margin-top: 25px;
+	margin-left: 20px;
+}
+
+#divConfCampeonatos {
+	position: absolute;
+	background-color:#CDC8B1;
+	margin-top: 25px;
+	margin-left: 335px;
+	border: 1px solid black;
+	width: 1000px;
+	height: 440px;
 }
 
 #divBotoesTime {
@@ -13,7 +30,13 @@
 #divBotoesJogador {
 	position:absolute;
 	margin-top: 15px;
-	margin-left: 436px;
+	margin-left: 435px;
+}
+
+#divBotoesConfiguracao {
+	position: absolute;
+	margin-top: 430px;
+	margin-left: 20px;
 }
 
 .botoesPaginaHome {
@@ -22,15 +45,15 @@
 
 #divTableTime {
 	margin-top: 70px;
-	margin-left: 145px;
-	width: 620px;
+	margin-left: 132px;
+	width: 605px;
 }
 
 #divTableJogador {
 	position:absolute;
 	margin-top: 68px;
 	margin-left: 437px;
-	width: 480px;
+	width: 530px;
 }
 
 #divTablePontosCorridos {

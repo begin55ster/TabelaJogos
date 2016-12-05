@@ -5,7 +5,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import br.com.jefferson.Abstrata.ActionMessager;
+import br.com.jefferson.Model.CampeonatoCopa;
+import br.com.jefferson.Model.CampeonatoMataMata;
 import br.com.jefferson.Model.CampeonatoPontosCorridos;
+import br.com.jefferson.Model.TipoCampeonato;
 import br.com.jefferson.RN.CampeonatoRN;
 import br.com.jefferson.RN.JogosRN;
 import br.com.jefferson.RN.TimeCampeonatoRN;
@@ -16,7 +19,7 @@ public class CampeonatoController extends ActionMessager {
 	
 	private static final String TIPO_SUCESSO = "Sucesso !";
 	private static final String INCLUSAO_CAMPEONATO_SUCESSO = "Campeonato cadastrado !";
-	private static final String VOLTAR_CONFIGURACOES = "navegar-Configuracoes";
+	private static final String VOLTAR_INDEX = "navegar-voltarConfiguracoes";
 	
 	
 	@EJB
@@ -28,29 +31,61 @@ public class CampeonatoController extends ActionMessager {
 	@EJB
 	private CampeonatoRN campeonatoRN;
 	
-	private int identificadorCampeonato = 0;
-	private String nomeCampeonato ;
+	private TipoCampeonato nomeCampeonato ;
 	
 	
-	public String gravarCampeonato() {
+	public void gravarCampeonato() {
 		try {
-			CampeonatoPontosCorridos campeonato = new CampeonatoPontosCorridos();
-			campeonato.setIdentificador(this.identificadorCampeonato);
-			campeonato.setNomeCampeonato(this.nomeCampeonato);
-			this.campeonatoRN.persistir(campeonato);
+			gravarCampeonatos();
 			messagerInformativa(TIPO_SUCESSO, INCLUSAO_CAMPEONATO_SUCESSO);
 		} catch (Exception e) {
 			messagerErro(e.getMessage());
 		} finally {
 			limparCampos();
 		}
-		return VOLTAR_CONFIGURACOES;
-		
+	}
+
+	private void gravarCampeonatos() throws Exception {
+		if(nomeCampeonato.getLabel().equals(TipoCampeonato.PONTOS_CORRIDO.getLabel())) {
+			gravarCampeonatoPontosCorridos();
+		} else if(nomeCampeonato.getLabel().equals(TipoCampeonato.MATA_MATA.getLabel())) {
+			gravarCampeonatoMataMata();
+		} else if(nomeCampeonato.getLabel().equals(TipoCampeonato.COPA.getLabel())) {
+			gravarCampeonatoCopa();
+		}
+	}
+
+	private void gravarCampeonatoCopa() throws Exception {
+		CampeonatoCopa campeonatoCopa = new CampeonatoCopa();
+		campeonatoCopa.setIdentificador(3);
+		campeonatoCopa.setNomeCampeonato(this.nomeCampeonato.getLabel());
+		this.campeonatoRN.persistir(campeonatoCopa);
+	}
+
+	private void gravarCampeonatoMataMata() throws Exception {
+		CampeonatoMataMata campeonatoMataMata = new CampeonatoMataMata();
+		campeonatoMataMata.setIdentificador(2);
+		campeonatoMataMata.setNomeCampeonato(this.nomeCampeonato.getLabel());
+		this.campeonatoRN.persistir(campeonatoMataMata);
+	}
+
+	private void gravarCampeonatoPontosCorridos() throws Exception {
+		CampeonatoPontosCorridos campeonato = new CampeonatoPontosCorridos();
+		campeonato.setIdentificador(1);
+		campeonato.setNomeCampeonato(this.nomeCampeonato.getLabel());
+		this.campeonatoRN.persistir(campeonato);
 	}
 	
-	private void limparCampos() {
-		this.identificadorCampeonato = 0;
+	public String voltarParaHome() {
+		return VOLTAR_INDEX;
+	}
+	
+	public void limparCampos() {
 		this.nomeCampeonato = null;
+	}
+	
+	public TipoCampeonato[] buscarTipoCampeonato() {
+	        return TipoCampeonato.values();
 	}
 
 	public String gravarJogoPontosCorridos() {
@@ -69,21 +104,15 @@ public class CampeonatoController extends ActionMessager {
 		return null;
 	}
 
-	public int getIdentificadorCampeonato() {
-		return identificadorCampeonato;
-	}
-
-	public void setIdentificadorCampeonato(int identificadorCampeonato) {
-		this.identificadorCampeonato = identificadorCampeonato;
-	}
-
-	public String getNomeCampeonato() {
+	public TipoCampeonato getNomeCampeonato() {
 		return nomeCampeonato;
 	}
 
-	public void setNomeCampeonato(String nomeCampeonato) {
+	public void setNomeCampeonato(TipoCampeonato nomeCampeonato) {
 		this.nomeCampeonato = nomeCampeonato;
 	}
+
+	
 	
 	
 	

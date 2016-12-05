@@ -6,17 +6,31 @@
       
   <ui:decorate template="/template/template.xhtml">
    <ui:define name="centro">
-   
-	<h:form id="formCampeonato">
-		<h:panelGrid columns="2">
-			<p:outputLabel for="Identificador" value="Identificador do Campeonato"/>
-			<p:inputText id="Identificador" size="50" value="#{campeonatoController.identificadorCampeonato}" />
-			<p:outputLabel for="nomeCampeonato" value="Nome do Campeonato"/>
-			<p:inputText id="nomeCampeonato" size="50" value="#{campeonatoController.nomeCampeonato}" />
-			<p:commandButton id="gravar" value="Gravar Campeonato" action="#{campeonatoController.gravarCampeonato()}" update="formCampeonato"/>
-		</h:panelGrid>
+		<h:form id="formCampeonato">
+		 <p:growl id="growl" showDetail="true" sticky="true" />
+		 	<div align="center" id="divPrincipalConfiguracao" >
+				<h:panelGrid columns="1">
+					<p:outputLabel for="config" value="Nome do Campeonato"/>
+					<p:selectOneMenu id="config" value="#{campeonatoController.nomeCampeonato}" update="formCampeonato" style="width: 290px;"> 
+				 	 <f:selectItem itemLabel="Selecione" itemValue=""/>
+  						 <f:selectItems value="#{campeonatoController.buscarTipoCampeonato()}" var="campeonato" itemValue="#{campeonato}" itemLabel="#{campeonato.label}"  />
+				  	</p:selectOneMenu>
+				</h:panelGrid>
+			</div>
+			<div id="divConfCampeonatos">
+				<p:fieldset>
+				
+				</p:fieldset>
+			</div>
+			<div id="divBotoesConfiguracao">
+				<h:panelGrid id="panelBotoesConfiguracao" columns="3">
+					<p:commandButton id="gravar" value="Gravar" action="#{campeonatoController.gravarCampeonato()}" update="growl formCampeonato"/>
+					<p:commandButton id="voltar" value="Voltar" action="#{campeonatoController.voltarParaHome()}" />
+					<p:commandButton id="limpar" value="Limpar" action="#{campeonatoController.limparCampos()}" update="formCampeonato"/>
+				</h:panelGrid>
+			</div>
 		</h:form>
-   	  </ui:define>
+   </ui:define>
   </ui:decorate>
 </html>
 

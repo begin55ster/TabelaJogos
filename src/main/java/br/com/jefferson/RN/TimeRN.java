@@ -66,7 +66,9 @@ public class TimeRN {
 
 	public void removerTime(Time time) throws Exception {
 		if(time.getSeq() != null) {
+			time = timeDao.obterPorId(time.getSeq());
 			timeDao.remover(time);
+			System.out.println("Chegou aqui");
 		} else {
 			throw new Exception("Não foi encontrado time para remover ");
 		}

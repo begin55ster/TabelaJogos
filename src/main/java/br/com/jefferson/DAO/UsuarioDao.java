@@ -31,7 +31,5 @@ public class UsuarioDao extends GenericDao<Long, Usuario>{
 			return null;
 		}
 	}
-	
-	
-	
+
 }

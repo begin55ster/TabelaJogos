@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import br.com.jefferson.DAO.CampeonatoDao;
+import br.com.jefferson.Model.Campeonato;
 import br.com.jefferson.Model.CampeonatoPontosCorridos;
 
 @Stateless
@@ -16,7 +17,7 @@ public class CampeonatoRN {
 	@Inject
 	private CampeonatoDao campeonatoDao;
 
-	public void persistir(CampeonatoPontosCorridos campeonato) throws Exception {
+	public void persistir(Campeonato campeonato) throws Exception {
 		List<CampeonatoPontosCorridos> campeonatos = campeonatoDao.listar();
 			if(campeonatos != null && !campeonatos.isEmpty()) {
 				campeonatoJaCadastrado(campeonato, campeonatos); 
@@ -26,13 +27,13 @@ public class CampeonatoRN {
 			}
 	}
 
-	private void campeonatoJaCadastrado(CampeonatoPontosCorridos campeonato, List<CampeonatoPontosCorridos> campeonatos) throws Exception {
+	private void campeonatoJaCadastrado(Campeonato campeonato, List<CampeonatoPontosCorridos> campeonatos) throws Exception {
 		for(CampeonatoPontosCorridos campeonatoPC : campeonatos) {
 			 verificaPersisteCampeonato(campeonato, campeonatoPC);
 		}
 	}
 
-	private void verificaPersisteCampeonato(CampeonatoPontosCorridos campeonato,	CampeonatoPontosCorridos campeonatoPC) throws Exception {
+	private void verificaPersisteCampeonato(Campeonato campeonato,	CampeonatoPontosCorridos campeonatoPC) throws Exception {
 		if(campeonato.getIdentificador().equals(campeonatoPC.getIdentificador())) {
 			throw new Exception(ERRO_CADASTRO_CAMPEONATO);
 		}

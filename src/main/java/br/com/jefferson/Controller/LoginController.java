@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import br.com.jefferson.Abstrata.ActionMessager;
+import br.com.jefferson.DAO.UsuarioDao;
 import br.com.jefferson.Model.Usuario;
 import br.com.jefferson.RN.UsuarioRN;
 
@@ -25,7 +26,11 @@ public class LoginController extends ActionMessager{
 	@EJB
 	UsuarioRN usuarioRN;
 	
+	@Inject
+	UsuarioDao usuarioDao;
+	
 	public static final String VERIFICAR_LOGIN_SENHA = "Por favor, verifique seu login ou senha !";
+	public static final String INDEX = "index";
 	
 	private String login;
 	private String senha;
@@ -51,7 +56,7 @@ public class LoginController extends ActionMessager{
 			FacesContext context = FacesContext.getCurrentInstance();
 			HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
 			request.getSession().setAttribute("user", user);
-			return "index";
+			return INDEX;
 		}
 		messagerErro("VERIFICAR_LOGIN_SENHA");
 		return null;

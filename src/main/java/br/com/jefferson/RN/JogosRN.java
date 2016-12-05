@@ -15,6 +15,7 @@ import br.com.jefferson.DAO.TimeDao;
 import br.com.jefferson.Model.CampeonatoPontosCorridos;
 import br.com.jefferson.Model.Jogo;
 import br.com.jefferson.Model.Time;
+import br.com.jefferson.Model.TipoCampeonato;
 
 @Stateless
 public class JogosRN {
@@ -90,10 +91,7 @@ public class JogosRN {
 	
 	private void gravarTabelaDeJogos(Map<Integer, List<Jogo>> rodadasFinal) {
 		List<Jogo> listaJogos = new ArrayList<Jogo>();
-		List<CampeonatoPontosCorridos> campeonatos = campeonatoDao.listar();
-		CampeonatoPontosCorridos novoCampeonato = new CampeonatoPontosCorridos();
-		
-		novoCampeonato = buscarTipoCampeonatoPontosCorridos(campeonatos, novoCampeonato);
+		CampeonatoPontosCorridos novoCampeonato = campeonatoDao.recuperarCampeonatoPontosCorridos(TipoCampeonato.PONTOS_CORRIDO.getLabel());
 		
 	   for(Map.Entry<Integer, List<Jogo>> vetorValor : rodadasFinal.entrySet()) {
 		   listaJogos = vetorValor.getValue();
@@ -103,15 +101,6 @@ public class JogosRN {
 		   }
         }
 		
-	}
-
-	private CampeonatoPontosCorridos buscarTipoCampeonatoPontosCorridos(List<CampeonatoPontosCorridos> campeonatos, CampeonatoPontosCorridos novoCampeonato) {
-		for(CampeonatoPontosCorridos campeonato : campeonatos) {
-			if(campeonato.getIdentificador().equals(3)) {
-				novoCampeonato = campeonato;
-			}
-		}
-		return novoCampeonato;
 	}
 
 	private Map<Integer, List<Jogo>> montarRodada(Map<Integer, List<Jogo>> rodadas, Map<Integer, List<Jogo>> rodadas1) {

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TIME_CAMPEONATO")
-public class TimeCampeonato implements Serializable {
+public class TimeCampeonato implements Serializable, Comparable<TimeCampeonato> {
 
 	private static final long serialVersionUID = -5133366043170647967L;
 	
@@ -131,6 +131,18 @@ public class TimeCampeonato implements Serializable {
 
 	public void setSaldoGols(Integer saldoGols) {
 		this.saldoGols = saldoGols;
+	}
+	
+
+	@Override
+	public int compareTo(TimeCampeonato timeCampeonato) {
+		 if (this.pontos > timeCampeonato.getPontos()) {
+	          return -1;
+	     }
+	     if (this.pontos < timeCampeonato.getPontos()) {
+	          return 1;
+	     }
+	     return 0;
 	}
 
 	@Override

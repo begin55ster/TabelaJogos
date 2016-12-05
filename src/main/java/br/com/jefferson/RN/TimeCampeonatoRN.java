@@ -1,5 +1,7 @@
 package br.com.jefferson.RN;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -12,6 +14,7 @@ import br.com.jefferson.Model.CampeonatoPontosCorridos;
 import br.com.jefferson.Model.Jogo;
 import br.com.jefferson.Model.Time;
 import br.com.jefferson.Model.TimeCampeonato;
+import br.com.jefferson.Model.TipoCampeonato;
 
 @Stateless
 public class TimeCampeonatoRN {
@@ -30,10 +33,7 @@ public class TimeCampeonatoRN {
 
 	public void montarClassificacao() {
 		List<Time> times = timeRN.recuperarTime();
-		CampeonatoPontosCorridos novoCampeonato = new CampeonatoPontosCorridos();
-		List<CampeonatoPontosCorridos> campeonatos = campeonatoDao.listar();
-		
-		novoCampeonato = buscarTipoCampeonatoPontosCorridos(campeonatos, novoCampeonato);
+		CampeonatoPontosCorridos novoCampeonato = campeonatoDao.recuperarCampeonatoPontosCorridos(TipoCampeonato.PONTOS_CORRIDO.getLabel());
 		
 		for(Time time : times) {
 			TimeCampeonato timeCampeonato = new TimeCampeonato();
@@ -56,17 +56,12 @@ public class TimeCampeonatoRN {
 		
 	}
 	
-	private CampeonatoPontosCorridos buscarTipoCampeonatoPontosCorridos(List<CampeonatoPontosCorridos> campeonatos, CampeonatoPontosCorridos novoCampeonato) {
-		for(CampeonatoPontosCorridos campeonato : campeonatos) {
-			if(campeonato.getIdentificador() == 3) {
-				novoCampeonato = campeonato;
-			}
-		}
-		return novoCampeonato;
-	}
-
 	public List<TimeCampeonato> buscarClassificacao() {
-		return timeCampeonatoDao.listar();
+		List<TimeCampeonato> listaOrdenadaTimeCampeonato = new ArrayList<TimeCampeonato>();
+		listaOrdenadaTimeCampeonato = timeCampeonatoDao.listar();
+		Collections.sort(listaOrdenadaTimeCampeonato);
+		
+		return listaOrdenadaTimeCampeonato;
 	}
 	
 	public void atualizarTabelaDeClassificacao(Jogo jogo) {
